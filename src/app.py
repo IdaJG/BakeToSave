@@ -48,15 +48,18 @@ app = Flask(__name__)
 def index():
     conn = get_db_connection()
     conni = get_dbi_connection()
+    conna = get_dba_connection()
     recipes = conn.execute('SELECT * FROM recipes').fetchall()
     ingredients = conni.execute('SELECT * FROM ingredients').fetchall()
+    appliances = conna.execute('SELECT * FROM appliances').fetchall()
     conn.close()
     conni.close()
+    conna.close()
 
     recipes = [dict(recipe) for recipe in recipes]
     recipes = [makelists(recipe) for recipe in recipes]
 
-    return render_template('index.html', recipes=recipes, ingredients=ingredients )
+    return render_template('index.html', recipes=recipes, ingredients=ingredients, appliances=appliances )
 
 @app.route('/<int:recipe_id>')
 def recipe(recipe_id):
@@ -79,12 +82,15 @@ def search():
 
     conn = get_db_connection()
     conni = get_dbi_connection()
+    conna = get_dba_connection()
 
     recipes = conn.execute('SELECT * FROM recipes').fetchall()
     ingredients = conni.execute('SELECT * FROM ingredients').fetchall()
+    appliances = conna.execute('SELECT * FROM appliances').fetchall()
 
     conn.close()
     conni.close()
+    conna.close()
 
     recipes = [dict(recipe) for recipe in recipes]
     recipes = [makelists(recipe) for recipe in recipes]
@@ -94,25 +100,46 @@ def search():
         if pattern.search(recipe['name']):
             matching_recipes.append(recipe)
 
-    return render_template('search_results.html', recipes=matching_recipes, search_term=search_term, ingredients=ingredients)
+    return render_template('search_results.html', recipes=matching_recipes, search_term=search_term, ingredients=ingredients, appliances=appliances)
 
 @app.route('/tick_results')
 def tick():
-    ticked_boxes = request.args.getlist('ingredients')
+    ticked_ingredients = request.args.getlist('ingredients')
+    ticked_appliances = request.args.getlist('appliances')
 
-    query_string = " AND ".join(["ingredients LIKE ?"] * len(ticked_boxes))
-    query_params = ['%' + ingredient + '%' for ingredient in ticked_boxes]
+    ingredient_query_string = " AND ".join(["ingredients LIKE ?"] * len(ticked_ingredients))
+    appliance_query_string = " AND ".join(["appliances NOT LIKE ?"] * len(ticked_appliances))
+
+    combined_query_string = ""
+    query_params = []
+
+    if ticked_ingredients:
+        combined_query_string += ingredient_query_string
+        query_params.extend(['%' + ingredient + '%' for ingredient in ticked_ingredients])
+
+    if ticked_appliances:
+        if combined_query_string:
+            combined_query_string += " AND "
+        combined_query_string += appliance_query_string
+        query_params.extend(['%' + appliance + '%' for appliance in ticked_appliances])
 
     conn = get_db_connection()
     conni = get_dbi_connection()
+    conna = get_dba_connection()
 
-    recipes = conn.execute(f'SELECT * FROM recipes WHERE {query_string}', query_params).fetchall()
+    if combined_query_string:
+        recipes = conn.execute(f'SELECT * FROM recipes WHERE {combined_query_string}', query_params).fetchall()
+    else:
+        recipes = conn.execute('SELECT * FROM recipes').fetchall()
+
     ingredients = conni.execute('SELECT * FROM ingredients').fetchall()
+    appliances = conna.execute('SELECT * FROM appliances').fetchall()
 
     conn.close()
     conni.close()
+    conna.close()
 
     recipes = [dict(recipe) for recipe in recipes]
     recipes = [makelists(recipe) for recipe in recipes]
 
-    return render_template('tick_results.html', recipes=recipes, ticked_boxes=ticked_boxes, ingredients=ingredients)
+    return render_template('tick_results.html', recipes=recipes, ticked_ingredients=ticked_ingredients, ticked_appliances=ticked_appliances, ingredients=ingredients, appliances=appliances)

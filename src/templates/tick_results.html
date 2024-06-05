@@ -14,8 +14,21 @@
                 <p><b>Ingredients</b></p>
                 {% for ingredient in ingredients %}
                     <input type="checkbox" id="{{ ingredient['i_id'] }}" name="ingredients" value="{{ ingredient['name'] }}" 
-                            {% if ingredient['name'] in ticked_boxes %} checked {% endif %}>
+                            {% if ingredient['name'] in ticked_ingredients %} checked {% endif %}>
                     <label for="{{ ingredient['i_id'] }}">{{ ingredient['name'] }}</label><br>
+                {% endfor %}
+                <br>
+                <input type="submit" value="Done">
+            </ul>
+        </div>
+        <div class="appliance_boxes">
+            <ul>
+                <p><b>Appliances</b><br>
+                <i>Please choose the appliances <br>you don't have</i></p>
+                {% for appliance in appliances %}
+                    <input type="checkbox" id="{{ appliance['a_id'] }}" name="appliances" value="{{ appliance['name'] }}"
+                        {% if appliance['name'] in ticked_appliances %} checked {% endif %}>
+                    <label for="{{ appliance['i_id'] }}">{{ appliance['name'] }}</label><br>
                 {% endfor %}
                 <br>
                 <input type="submit" value="Done">

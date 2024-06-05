@@ -20,6 +20,18 @@
                 <input type="submit" value="Done">
             </ul>
         </div>
+        <div class="appliance_boxes">
+            <ul>
+                <p><b>Appliances</b><br>
+                <i>Please choose the appliances <br>you don't have</i></p>
+                {% for appliance in appliances %}
+                    <input type="checkbox" id="{{ appliance['a_id'] }}" name="appliances" value="{{ appliance['name'] }}">
+                    <label for="{{ appliance['i_id'] }}">{{ appliance['name'] }}</label><br>
+                {% endfor %}
+                <br>
+                <input type="submit" value="Done">
+            </ul>
+        </div>
     </form>
     {% if recipes %}
     <div class="search_results_text">

@@ -96,6 +96,12 @@ button {
     left:auto;
     width:250px;
 }
+.appliance_boxes{
+    position:relative;
+    right:auto;
+    float:right;
+    width:250px;
+}
 
 .badge{
     border-radius: 10px; 
