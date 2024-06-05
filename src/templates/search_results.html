@@ -12,8 +12,8 @@
             <a href=" {{ url_for('recipe', recipe_id=recipe['r_id']) }}" >
                 <h2>{{ recipe['name'] }}</h2>
             </a>
-            <span class="badge badge-primary">{{ recipe['category'] }}</span>
-            <span class="badge badge-primary">{{ recipe['source'] }}</span>
+            <span class="badge">{{ recipe['category'] }}</span>
+            <span class="badge">{{ recipe['source'] }}</span>
             <ul>
                 {% for ingredient in recipe['ingredients'] %}
                     <li>{{ ingredient }}</li>
