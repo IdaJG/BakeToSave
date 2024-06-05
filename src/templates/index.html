@@ -6,8 +6,8 @@
         <input type="text" placeholder="Search for recipe..."name="search">
         <button type="submit">Search</button>
     </form>
-    <div class="recipe_list"
-    {% for recipe in recipes %}
+    <div class="recipe_list"> 
+        {% for recipe in recipes %}
         <a href=" {{ url_for('recipe', recipe_id=recipe['r_id']) }}" >
             <h2>{{ recipe['name'] }}</h2>
         </a>
@@ -15,16 +15,17 @@
         <span class="badge">{{ recipe['source'] }}</span>
         <ul>
             {% for ingredient in recipe['ingredients'] %}
-                <li>{{ ingredient }}</li>
+            <li>{{ ingredient }}</li>
             {% endfor %}
         </ul>
         <br>
         <p><b>Appliances:</b></p>
         <ul>
             {% for appliance in recipe['appliances'] %}
-                <li>{{ appliance }}</li>
+            <li>{{ appliance }}</li>
             {% endfor %}
         </ul>
         <hr >
-    {% endfor %}
+        {% endfor %}
+    </div>
 {% endblock %}

@@ -7,7 +7,8 @@
         <button type="submit">Search</button>
     </form>
     {% if recipes %}
-        <p> Results found for "{{ search_term }}" </p>
+    <p> Results found for "{{ search_term }}" </p>
+    <div class="recipe_list"> 
         {% for recipe in recipes %}
             <a href=" {{ url_for('recipe', recipe_id=recipe['r_id']) }}" >
                 <h2>{{ recipe['name'] }}</h2>
@@ -28,6 +29,7 @@
             </ul>
             <hr >
         {% endfor %}
+    </div>
     {% else %}
         <p> No results found for "{{ search_term }}" </p>
     {% endif %}
