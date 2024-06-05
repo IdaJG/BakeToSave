@@ -78,9 +78,13 @@ def search():
     pattern = re.compile(search_term, re.IGNORECASE)
 
     conn = get_db_connection()
+    conni = get_dbi_connection()
+
     recipes = conn.execute('SELECT * FROM recipes').fetchall()
+    ingredients = conni.execute('SELECT * FROM ingredients').fetchall()
 
     conn.close()
+    conni.close()
 
     recipes = [dict(recipe) for recipe in recipes]
     recipes = [makelists(recipe) for recipe in recipes]
@@ -90,4 +94,25 @@ def search():
         if pattern.search(recipe['name']):
             matching_recipes.append(recipe)
 
-    return render_template('search_results.html', recipes=matching_recipes, search_term=search_term)
+    return render_template('search_results.html', recipes=matching_recipes, search_term=search_term, ingredients=ingredients)
+
+@app.route('/tick_results')
+def tick():
+    ticked_boxes = request.args.getlist('ingredients')
+
+    query_string = " AND ".join(["ingredients LIKE ?"] * len(ticked_boxes))
+    query_params = ['%' + ingredient + '%' for ingredient in ticked_boxes]
+
+    conn = get_db_connection()
+    conni = get_dbi_connection()
+
+    recipes = conn.execute(f'SELECT * FROM recipes WHERE {query_string}', query_params).fetchall()
+    ingredients = conni.execute('SELECT * FROM ingredients').fetchall()
+
+    conn.close()
+    conni.close()
+
+    recipes = [dict(recipe) for recipe in recipes]
+    recipes = [makelists(recipe) for recipe in recipes]
+
+    return render_template('tick_results.html', recipes=recipes, ticked_boxes=ticked_boxes, ingredients=ingredients)

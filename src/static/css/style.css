@@ -29,6 +29,11 @@ h1 {
     margin: 50px;
 }
 
+.search_results_text {
+    position:absolute;
+    left:300px;
+}
+
 .topnav {
     overflow: hidden;
     background-color:bisque;

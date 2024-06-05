@@ -3,11 +3,27 @@
 {% block content %}
     <h1>{% block title %} BakeToSave {% endblock %}</h1>
     <form action="/search_results">
-        <input type="text" placeholder="Search for recipe..."name="search">
-        <button type="submit">Search</button>
+        <div class="searchbar">
+            <input type="text" placeholder="Search for recipe..."name="search">
+            <button type="submit">Search</button>
+        </div>
+    </form>
+    <form action="/tick_results">
+        <div class="ingredient_boxes">
+            <ul>
+                <p><b>Ingredients</b></p>
+                {% for ingredient in ingredients %}
+                    <input type="checkbox" id="{{ ingredient['i_id'] }}" name="ingredients" value="{{ ingredient['name'] }}">
+                    <label for="{{ ingredient['i_id'] }}">{{ ingredient['name'] }}</label><br>
+                {% endfor %}
+                <br>
+                <input type="submit" value="Done">
+            </ul>
+        </div>
     </form>
     {% if recipes %}
-    <p> Results found for "{{ search_term }}" </p>
+    <div class="search_results_text">
+        <p> Results found for "{{ search_term }}" </p>
     <div class="recipe_list"> 
         {% for recipe in recipes %}
             <a href=" {{ url_for('recipe', recipe_id=recipe['r_id']) }}" >
@@ -31,6 +47,8 @@
         {% endfor %}
     </div>
     {% else %}
+    <div class="search_results_text">
         <p> No results found for "{{ search_term }}" </p>
+    <div class="recipe_list"> 
     {% endif %}
 {% endblock %}
