@@ -89,10 +89,7 @@ button {
 .ingredient_boxes{
     position:absolute;
     left:auto;
-    width:200px;
-}
-
-input[type=checkbox] {
+    width:250px;
 }
 
 .badge{

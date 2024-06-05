@@ -12,10 +12,10 @@
         <div class="ingredient_boxes">
             <ul>
                 <p><b>Ingredients</b></p>
-                <input type="checkbox" id="i1" name="i_1" value="Butter">
-                <label for="ingredient1">Butter</label><br>
-                <input type="checkbox" id="i2" name="i_2" value="Milk">
-                <label for="ingredient1">Milk</label><br>
+                {% for ingredient in ingredients %}
+                    <input type="checkbox" id="{{ ingredient['i_id'] }}" name="{{ ingredient['i_id'] }}" value="{{ ingredient['name'] }}">
+                    <label for="{{ ingredient['i_id'] }}">{{ ingredient['name'] }}</label><br>
+                {% endfor %}
                 <br>
                 <input type="submit" value="Submit">
             </ul>

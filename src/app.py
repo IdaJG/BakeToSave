@@ -47,13 +47,16 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     conn = get_db_connection()
+    conni = get_dbi_connection()
     recipes = conn.execute('SELECT * FROM recipes').fetchall()
+    ingredients = conni.execute('SELECT * FROM ingredients').fetchall()
     conn.close()
+    conni.close()
 
     recipes = [dict(recipe) for recipe in recipes]
     recipes = [makelists(recipe) for recipe in recipes]
 
-    return render_template('index.html', recipes=recipes )
+    return render_template('index.html', recipes=recipes, ingredients=ingredients )
 
 @app.route('/<int:recipe_id>')
 def recipe(recipe_id):
