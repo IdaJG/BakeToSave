@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} BakeToSave {% endblock %}</h1>
+    <form action="/search_results">
+        <input type="text" placeholder="Search for recipe..."name="search">
+        <button type="submit">Search</button>
+    </form>
+    {% if recipes %}
+        <p> Results found for "{{ search_term }}" </p>
+        {% for recipe in recipes %}
+            <a href=" {{ url_for('recipe', recipe_id=recipe['r_id']) }}" >
+                <h2>{{ recipe['name'] }}</h2>
+            </a>
+            <span class="badge badge-primary">{{ recipe['category'] }}</span>
+            <span class="badge badge-primary">{{ recipe['source'] }}</span>
+            <ul>
+                {% for ingredient in recipe['ingredients'] %}
+                    <li>{{ ingredient }}</li>
+                {% endfor %}
+            </ul>
+            <br>
+            <p><b>Appliances:</b></p>
+            <ul>
+                {% for appliance in recipe['appliances'] %}
+                    <li>{{ appliance }}</li>
+                {% endfor %}
+            </ul>
+            <hr >
+        {% endfor %}
+    {% else %}
+        <p> No results found for "{{ search_term }}" </p>
+    {% endif %}
+{% endblock %}

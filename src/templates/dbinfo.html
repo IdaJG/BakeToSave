@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Database Information {% endblock %}</h1>
+    <div class="dbinfo">
+        <p> BakeToSafe has a database consisting of 30 recipes' ingredients along with other information. These have all been manually added by its creators, with 
+            links to the other websites that owns the recipes, and where the step-by-step recipe instructions are also found. At this moment, since BakeToSafe is a 
+            private project and we don't intend to publish it or profit of of it, we have not reached out to the websites used in the database, but if we were to make 
+            it public, we would reach out to all of the involved websites and get permission to use their recipes to not violate their copyright ownership. <br>
+            <br>
+            Since we would need permission from each individual website before linking to their recipes, we have decided that it is only the creators who are allowed 
+            to add to the database. This would make it a slow growing database, but it is necessary. </p>
+    </div>
+
+{% endblock %}

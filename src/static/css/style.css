@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+.container {
+    margin: 30px 30px;
+}
+
+h1 {
+    color: brown;
+    text-align: center;
+    padding: 10px;
+    font-family: "Georgia", "Garamond", serif;
+}
+
+.dbinfo {
+    margin: 50px 50px;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color:bisque;
+}
+
+.topnav a {
+    float: left;
+    color:black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: burlywood;
+    color:black;
+}
+
+.topnav a.active {
+    background-color:bisque;
+    color:black;
+}
+
+.topnav a.active:hover{
+    background-color: burlywood;
+    color:black;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row; 
+    width: 100%; 
+}
+
+input[type=text] {
+    width: 50%;
+    padding: 10px 16px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=text]:focus {
+    border: 2px solid #555;
+}
+
+button {
+    padding: 10px 16px;
+    box-sizing: border-box;
+    height: 39px; 
+    font-size: 16px; 
+    line-height: normal;
+    border:none;
+}
+
+.badge-primary{
+    border-radius: 10px; 
+    padding: 6px;
+    color:#fff;
+    background-color:brown;
+}

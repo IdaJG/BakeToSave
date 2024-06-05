@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{% block title %} {{ recipe['name'] }} {% endblock %}</h2>
+    <span class="badge badge-primary">Category: {{ recipe['category'] }}</span>
+    <div>
+        <br>
+        <span><b>Non-prep time in minutes: </b></span>
+        {{recipe['time']}}
+    </div>
+    <br>
+    <p><b>Ingredients:</b></p>
+    <ul>
+        {% for ingredient in recipe['ingredients'] %}
+            <li>{{ ingredient }}</li>
+        {% endfor %}
+    </ul>
+    <br>
+    <p><b>Appliances:</b></p>
+    <ul>
+        {% for appliance in recipe['appliances'] %}
+            <li>{{ appliance }}</li>
+        {% endfor %}
+    </ul>
+    <p>Link to <b>{{ recipe['source'] }}</b>:</p> <a href="{{ recipe['link'] }}">{{ recipe['link'] }}</a>
+{% endblock %}

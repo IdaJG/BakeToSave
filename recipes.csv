@@ -1,0 +1,31 @@
+r_id,name,category,time,source,link,ingredients,appliances
+1,Rosinboller,Bread,105,Cakenheaven,https://www.cakenheaven.com/rosinboller/ ,Butter/Milk/Yeast/Eggs/Sugar/Salt/Cardamom/Flour/Raisins,Oven
+2,Kanelsnegle kage,Cake,40,Maden i mit liv,https://madenimitliv.dk/kanelsnegle-kage/ ,Eggs/Sugar/Vanilla/Oil/Flour/Baking powder/Salt/Milk,Oven/Baking form
+3,Karamelkager,Cookie,10,Noget i ovnen,https://nogetiovnen.dk/karamelkager-laekre-og-sproede-karamelsnitter-nemme-at-lave/ ,Butter/Powdered sugar/Vanilla/Light syrup/Flour/Baking powder/Salt,Oven
+4,Oreo brownies,Cake,20,Webopskrifter,https://www.webopskrifter.dk/opskrifter/oreo-brownies-23691/ ,Butter/Dark chocolate/Sugar/Flour/Eggs/Oreos,Oven/Baking form
+5,Bananbroed,Bread,50,Spis bedre,https://spisbedre.dk/opskrifter/bananbrod ,Sugar/Eggs/Flour/Baking powder/Ground cinnamon/Vanilla/Salt/Oil/Bananas/Dark chocolate,Oven/Breadform
+6,Nemme smaakager,Cookies,30,Marinas mad,https://marinasmad.com/kage/nemme-vanilje-smaakager/ ,Flour/Butter/Sugar/Vanilla/Eggs/Light syrup/Powdered sugar,Oven
+7,Chokoladecookies,Cookie,30,Mummum,https://mummum.dk/chokoladecookies/ ,Butter/Sugar/Brown sugar/Vanilla/Eggs/Baking powder/Cocoa/Salt/Flour/Dark chocolate,Oven
+8,Cheesecake med jordbaer,Non-bake,450,Valdemarsro,https://www.valdemarsro.dk/cheesecake/ ,Digestive biscuits/Almonds/Butter/Gelatin/Cream cheese/Greek yoghurt/Powdered sugar/Vanilla/Frozen strawberries/Lemon/Sugar/Strawberries,Baking form/Fridge
+9,Aebletaerte,Pie,45,Arla,https://www.arla.dk/opskrifter/abletarte/ ,Butter/Sugar/Eggs/Flour/Baking powder/Apples/Creme fraiche/Powdered sugar,Oven/Baking form
+10,Amerikanske cookies med citron og hvid chokolade,Cookie,46,Mandekogebogen,https://mandekogebogen.dk/amerikanske-cookies-med-citron-og-hvid-chokolade.1766.html ,Sugar/Butter/Brown sugar/Vanilla/Eggs/Flour/Salt/Baking powder/Baking soda/Lemon/White chocolate,Oven
+11,Chocolate Biscuit Cake,No-bake,140,Rich and Delish,https://richanddelish.com/chocolate-biscuit-cake/ ,Digestive biscuits/Cocoa/Sugar/Vanilla/Butter/Heavy cream/Dark chocolate/Walnuts,Fridge
+12,Droemmekage fra Brovst,Cake,35,Arla,https://www.arla.dk/opskrifter/drommekage-fra-brovst/ ,Eggs/Sugar/Milk/Butter/Flour/Baking powder/Vanilla/Desiccated coconut/Brown sugar,Baking form/Oven
+13,Tiramisu,Non-bake,780,Anna Mad,https://anna-mad.dk/tiramisu/,Coffee/Amaretto/Eggs/Sugar/Mascarpone/Heavy cream/Ladyfingers/Cocoa,Deep dish
+14,Blueberry muffins,Muffin,35,Allrecipes,https://www.allrecipes.com/recipe/6865/to-die-for-blueberry-muffins/ ,Flour/Sugar/Baking powder/Salt/Oil/Blueberries/Milk/Eggs/Cinnamon ,Oven/Muffin form
+15,Frozen cheesecake bites,Non-bake,730,Kop&Kande,https://www.kop-kande.dk/inspiration/opskrifter/snacks/frozen-cheesecake-bites ,Digestive biscuits/Butter/Cream cheese/Greek yoghurt/Vanilla/Lemon/Honey,Icetray/Freezer
+16,Marmorkage,Cake,210,Spis bedre,https://spisbedre.dk/opskrifter/marmorkage-klassisk-opskrift ,Sugar/Flour/Vanilla/Eggs/Cocoa/Salt,Oven/Baking form
+17,Kanelsnegle,Pastry,120,Valdemarso,https://www.valdemarsro.dk/kanelsnegle/ ,Milk/Yeast/Butter/Vanilla/sugar/Cinnamon/Cardamom/Flour/Eggs/Salt/Powdered sugar,Oven
+18,Poelsehorn,Savoury,85,Arla,https://www.arla.dk/opskrifter/polsehorn/ ,Butter/Milk/Yeast/Sugar/Salt/Flour/Sausage/Sesame seeds,Oven
+19,Spandauer,Pastry,210,Mandekogebogen,https://mandekogebogen.dk/spandauer-opskrift-paa-hjemmelavet-spandauere-med-wienerbroed-og-kagecreme.1418.html ,Yeast/Eggs/Sugar/Salt/Flour/Milk/Vanilla/Hazelnuts/Powdered sugar/Corn starch,Oven
+20,Froesnapper,Pastry,30,Skandi Baking,https://skandibaking.com/frosnapper-danish-pastry-twists/ ,Poppy seeds/Sesame seeds/Vanilla/Sugar/Salt/Flour/Milk/Eggs,Oven
+21,Foedselsdagsboller,Bread,120,Julie Bruun,https://juliebruun.com/foedselsdagsboller/ ,Yeast/Eggs/Sugar/Salt/Flour/Cardamom/Butter/Milk,Oven
+22,Jordbaerroulade ,Cake,120,Valdemarsro,https://www.valdemarsro.dk/jordbaerroulade/ ,Baking powder/Eggs/Sugar/Salt/Almond flour/Vanilla/Butter/Flour/Heavy cream/Dark chocolate/Strawberries/Mint,Oven
+23,Pizza foccacia,Savoury,132,Mummum,https://mummum.dk/pizza-foccacia/ ,Yeast/Oil/Salt/Honey/Flour/Durum wheat/Pizza sauce/Pepperoni/Mozzarella/Oregano,Oven
+24,Klejner,Cookies,90,Valdemarsro,https://www.valdemarsro.dk/klejner/ ,Butter/Sugar/Heavy cream/Vanilla/Cardamom/Salt/Lemon/Flour/Oil,Deep fry pan
+25,Key lime pie,Pie,185,Spis Bedre,https://spisbedre.dk/opskrifter/key-lime-pie-med-flodeskum ,Wheat biscuits/Butter/Brown sugar/Salt/Condensed milk/Eggs/Lime/Heavy cream,Baking form/Oven
+26,Jordbaertaerte,Pie,45,Valdemarsro ,https://www.valdemarsro.dk/jordbaertaerte/ ,Marzipan/Sugar/Butter/Eggs/Dark chocolate/Vanilla/Milk/Corn starch/Heavy cream/Mint/Strawberries/Flour,Oven/Fridge
+27,Baklava,Pastry,45,Spis bedre,https://spisbedre.dk/opskrifter/baklava,Pistachio/Rose water/Almonds/Hazelnuts/Walnuts/Butter/Cinnamon/Salt/Oil/Honey/Phyllo dough,Oven
+28,Banankage,Cake,55,Arla,https://www.arla.dk/opskrifter/banankage/ ,Eggs/Sugar/Vanilla/Flour/Baking powder/Butter/Bananas/Dark chocolate/Walnuts,Oven/Baking form
+29,Surdejsbroed,Bread,825,Arla,https://www.arla.dk/opskrifter/surdejsbrod/ ,Sourdough/Honey/Flour/Salt,Oven/Fridge
+30,Pandekager,Cake,30,Valdemarso,https://www.valdemarsro.dk/pandekager/ ,Vanilla/Sugar/Cardamom/Eggs/Milk/Salt/Flour/Butter,Pan
