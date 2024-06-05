@@ -72,12 +72,19 @@ def dbinfo():
 def search():
     search_term = request.args.get('search')
     """ Insert regex here instead of LIKE """
+    pattern = re.compile(search_term, re.IGNORECASE)
+
     conn = get_db_connection()
-    recipes = conn.execute('SELECT * FROM recipes WHERE name LIKE ?', ('%' + search_term + '%',)).fetchall()
+    recipes = conn.execute('SELECT * FROM recipes').fetchall()
 
     conn.close()
 
     recipes = [dict(recipe) for recipe in recipes]
     recipes = [makelists(recipe) for recipe in recipes]
 
-    return render_template('search_results.html', recipes=recipes, search_term=search_term)
+    matching_recipes = []
+    for recipe in recipes:
+        if pattern.search(recipe['name']):
+            matching_recipes.append(recipe)
+
+    return render_template('search_results.html', recipes=matching_recipes, search_term=search_term)
