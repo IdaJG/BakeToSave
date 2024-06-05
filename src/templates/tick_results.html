@@ -23,6 +23,14 @@
         </div>
         <div class="appliance_boxes">
             <ul>
+                <p><b>Category</b></p>
+                {% for category in categories %}
+                    <input type="checkbox" id="{{ category }}" name="categories" value="{{ category }}"
+                        {% if category in ticked_categories %} checked {% endif %}>
+                    <label for="{{ category }}">{{ category }}</label><br>
+                {% endfor %}
+                <br>
+                <input type="submit" value="Done">
                 <p><b>Appliances</b><br>
                 <i>Please choose the appliances <br>you don't have</i></p>
                 {% for appliance in appliances %}

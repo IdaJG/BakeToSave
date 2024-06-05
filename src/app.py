@@ -52,6 +52,7 @@ def index():
     recipes = conn.execute('SELECT * FROM recipes').fetchall()
     ingredients = conni.execute('SELECT * FROM ingredients').fetchall()
     appliances = conna.execute('SELECT * FROM appliances').fetchall()
+    categories = conn.execute('SELECT DISTINCT category FROM recipes').fetchall()
     conn.close()
     conni.close()
     conna.close()
@@ -59,7 +60,8 @@ def index():
     recipes = [dict(recipe) for recipe in recipes]
     recipes = [makelists(recipe) for recipe in recipes]
 
-    return render_template('index.html', recipes=recipes, ingredients=ingredients, appliances=appliances )
+    return render_template('index.html', recipes=recipes, ingredients=ingredients, appliances=appliances, 
+                           categories=[category['category'] for category in categories])
 
 @app.route('/<int:recipe_id>')
 def recipe(recipe_id):
@@ -100,15 +102,18 @@ def search():
         if pattern.search(recipe['name']):
             matching_recipes.append(recipe)
 
-    return render_template('search_results.html', recipes=matching_recipes, search_term=search_term, ingredients=ingredients, appliances=appliances)
+    return render_template('search_results.html', recipes=matching_recipes, search_term=search_term, 
+                           ingredients=ingredients, appliances=appliances)
 
 @app.route('/tick_results')
 def tick():
     ticked_ingredients = request.args.getlist('ingredients')
     ticked_appliances = request.args.getlist('appliances')
+    ticked_categories = request.args.getlist('categories')
 
     ingredient_query_string = " AND ".join(["ingredients LIKE ?"] * len(ticked_ingredients))
     appliance_query_string = " AND ".join(["appliances NOT LIKE ?"] * len(ticked_appliances))
+    category_query_string = " OR ".join(["category = ?"] * len(ticked_categories))
 
     combined_query_string = ""
     query_params = []
@@ -123,6 +128,14 @@ def tick():
         combined_query_string += appliance_query_string
         query_params.extend(['%' + appliance + '%' for appliance in ticked_appliances])
 
+    if ticked_categories:
+        if combined_query_string:
+            combined_query_string += " AND ("
+        combined_query_string += category_query_string
+        if ticked_ingredients or ticked_appliances:
+            combined_query_string += ")"
+        query_params.extend(ticked_categories)
+
     conn = get_db_connection()
     conni = get_dbi_connection()
     conna = get_dba_connection()
@@ -134,6 +147,7 @@ def tick():
 
     ingredients = conni.execute('SELECT * FROM ingredients').fetchall()
     appliances = conna.execute('SELECT * FROM appliances').fetchall()
+    categories = conn.execute('SELECT DISTINCT category FROM recipes').fetchall()
 
     conn.close()
     conni.close()
@@ -142,4 +156,6 @@ def tick():
     recipes = [dict(recipe) for recipe in recipes]
     recipes = [makelists(recipe) for recipe in recipes]
 
-    return render_template('tick_results.html', recipes=recipes, ticked_ingredients=ticked_ingredients, ticked_appliances=ticked_appliances, ingredients=ingredients, appliances=appliances)
+    return render_template('tick_results.html', recipes=recipes, 
+                           ticked_ingredients=ticked_ingredients, ticked_appliances=ticked_appliances, ticked_categories=ticked_categories, 
+                           ingredients=ingredients, appliances=appliances, categories=[category['category'] for category in categories])

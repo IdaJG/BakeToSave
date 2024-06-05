@@ -1,14 +1,14 @@
 r_id,name,category,time,source,link,ingredients,appliances
 1,Rosinboller,Bread,105,Cakenheaven,https://www.cakenheaven.com/rosinboller/ ,Butter/Milk/Yeast/Eggs/Sugar/Salt/Cardamom/Flour/Raisins,Oven
 2,Kanelsnegle kage,Cake,40,Maden i mit liv,https://madenimitliv.dk/kanelsnegle-kage/ ,Eggs/Sugar/Vanilla/Oil/Flour/Baking powder/Salt/Milk,Oven/Baking form
-3,Karamelkager,Cookie,10,Noget i ovnen,https://nogetiovnen.dk/karamelkager-laekre-og-sproede-karamelsnitter-nemme-at-lave/ ,Butter/Powdered sugar/Vanilla/Light syrup/Flour/Baking powder/Salt,Oven
+3,Karamelkager,Cookies,10,Noget i ovnen,https://nogetiovnen.dk/karamelkager-laekre-og-sproede-karamelsnitter-nemme-at-lave/ ,Butter/Powdered sugar/Vanilla/Light syrup/Flour/Baking powder/Salt,Oven
 4,Oreo brownies,Cake,20,Webopskrifter,https://www.webopskrifter.dk/opskrifter/oreo-brownies-23691/ ,Butter/Dark chocolate/Sugar/Flour/Eggs/Oreos,Oven/Baking form
 5,Bananbroed,Bread,50,Spis bedre,https://spisbedre.dk/opskrifter/bananbrod ,Sugar/Eggs/Flour/Baking powder/Ground cinnamon/Vanilla/Salt/Oil/Bananas/Dark chocolate,Oven/Breadform
 6,Nemme smaakager,Cookies,30,Marinas mad,https://marinasmad.com/kage/nemme-vanilje-smaakager/ ,Flour/Butter/Sugar/Vanilla/Eggs/Light syrup/Powdered sugar,Oven
-7,Chokoladecookies,Cookie,30,Mummum,https://mummum.dk/chokoladecookies/ ,Butter/Sugar/Brown sugar/Vanilla/Eggs/Baking powder/Cocoa/Salt/Flour/Dark chocolate,Oven
+7,Chokoladecookies,Cookies,30,Mummum,https://mummum.dk/chokoladecookies/ ,Butter/Sugar/Brown sugar/Vanilla/Eggs/Baking powder/Cocoa/Salt/Flour/Dark chocolate,Oven
 8,Cheesecake med jordbaer,Non-bake,450,Valdemarsro,https://www.valdemarsro.dk/cheesecake/ ,Digestive biscuits/Almonds/Butter/Gelatin/Cream cheese/Greek yoghurt/Powdered sugar/Vanilla/Frozen strawberries/Lemon/Sugar/Strawberries,Baking form/Fridge
 9,Aebletaerte,Pie,45,Arla,https://www.arla.dk/opskrifter/abletarte/ ,Butter/Sugar/Eggs/Flour/Baking powder/Apples/Creme fraiche/Powdered sugar,Oven/Baking form
-10,Amerikanske cookies med citron og hvid chokolade,Cookie,46,Mandekogebogen,https://mandekogebogen.dk/amerikanske-cookies-med-citron-og-hvid-chokolade.1766.html ,Sugar/Butter/Brown sugar/Vanilla/Eggs/Flour/Salt/Baking powder/Baking soda/Lemon/White chocolate,Oven
+10,Amerikanske cookies med citron og hvid chokolade,Cookies,46,Mandekogebogen,https://mandekogebogen.dk/amerikanske-cookies-med-citron-og-hvid-chokolade.1766.html ,Sugar/Butter/Brown sugar/Vanilla/Eggs/Flour/Salt/Baking powder/Baking soda/Lemon/White chocolate,Oven
 11,Chocolate Biscuit Cake,No-bake,140,Rich and Delish,https://richanddelish.com/chocolate-biscuit-cake/ ,Digestive biscuits/Cocoa/Sugar/Vanilla/Butter/Heavy cream/Dark chocolate/Walnuts,Fridge
 12,Droemmekage fra Brovst,Cake,35,Arla,https://www.arla.dk/opskrifter/drommekage-fra-brovst/ ,Eggs/Sugar/Milk/Butter/Flour/Baking powder/Vanilla/Desiccated coconut/Brown sugar,Baking form/Oven
 13,Tiramisu,Non-bake,780,Anna Mad,https://anna-mad.dk/tiramisu/,Coffee/Amaretto/Eggs/Sugar/Mascarpone/Heavy cream/Ladyfingers/Cocoa,Deep dish
