@@ -8,6 +8,16 @@ def get_db_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
+def get_dbi_connection():
+    conn = sqlite3.connect('ingredients.db')
+    conn.row_factory = sqlite3.Row
+    return conn
+
+def get_dba_connection():
+    conn = sqlite3.connect('appliances.db')
+    conn.row_factory = sqlite3.Row
+    return conn
+
 def makelists(recipe):
     if 'ingredients' in recipe:
         recipe['ingredients'] = recipe['ingredients'].split('/')

@@ -21,6 +21,11 @@ h1 {
 }
 
 .recipe_list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    width: 60%; 
     margin: 50px;
 }
 
@@ -53,7 +58,7 @@ h1 {
     color:black;
 }
 
-form {
+.searchbar {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,6 +84,15 @@ button {
     font-size: 16px; 
     line-height: normal;
     border:none;
+}
+
+.ingredient_boxes{
+    position:absolute;
+    left:auto;
+    width:200px;
+}
+
+input[type=checkbox] {
 }
 
 .badge{

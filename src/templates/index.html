@@ -3,8 +3,23 @@
 {% block content %}
     <h1>{% block title %} BakeToSave {% endblock %}</h1>
     <form action="/search_results">
-        <input type="text" placeholder="Search for recipe..."name="search">
-        <button type="submit">Search</button>
+        <div class="searchbar">
+            <input type="text" placeholder="Search for recipe..."name="search">
+            <button type="submit">Search</button>
+        </div>
+    </form>
+    <form action="/tick_results">
+        <div class="ingredient_boxes">
+            <ul>
+                <p><b>Ingredients</b></p>
+                <input type="checkbox" id="i1" name="i_1" value="Butter">
+                <label for="ingredient1">Butter</label><br>
+                <input type="checkbox" id="i2" name="i_2" value="Milk">
+                <label for="ingredient1">Milk</label><br>
+                <br>
+                <input type="submit" value="Submit">
+            </ul>
+        </div>
     </form>
     <div class="recipe_list"> 
         {% for recipe in recipes %}
