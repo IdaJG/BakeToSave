@@ -22,11 +22,21 @@ h1 {
 
 .recipe_list {
     display: flex;
+    position:relative;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    flex-direction: column; 
-    width: 60%; 
-    margin: 50px;
+    width: 70%; 
+    left: 200px;
+    right: 200px;
+    top: 25px;
+}
+.recipe_box {
+    width: 250px;
+    margin: 8px 8px;
+    border: 2px solid burlywood;
+    background-color: bisque;
+    padding:8px 12px;
 }
 
 .search_results_text {
@@ -100,7 +110,7 @@ button {
     position:relative;
     right:auto;
     float:right;
-    width:250px;
+    width:200px;
 }
 
 .badge{
