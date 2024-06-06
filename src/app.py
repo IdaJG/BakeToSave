@@ -89,6 +89,8 @@ def search():
     recipes = conn.execute('SELECT * FROM recipes').fetchall()
     ingredients = conni.execute('SELECT * FROM ingredients').fetchall()
     appliances = conna.execute('SELECT * FROM appliances').fetchall()
+    categories = conn.execute('SELECT DISTINCT category FROM recipes').fetchall()
+
 
     conn.close()
     conni.close()
@@ -103,7 +105,7 @@ def search():
             matching_recipes.append(recipe)
 
     return render_template('search_results.html', recipes=matching_recipes, search_term=search_term, 
-                           ingredients=ingredients, appliances=appliances)
+                           ingredients=ingredients, appliances=appliances, categories=[category['category'] for category in categories])
 
 @app.route('/tick_results')
 def tick():
