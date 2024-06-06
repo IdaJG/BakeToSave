@@ -79,8 +79,12 @@ def dbinfo():
 @app.route('/search_results')
 def search():
     search_term = request.args.get('search')
-    """ Insert regex here instead of LIKE """
-    pattern = re.compile(search_term, re.IGNORECASE)
+
+    if not search_term:
+        return render_template('search_results.html', recipes=[], search_term=search_term)
+    normalized_search_term = search_term.replace('å', 'aa').replace('ø', 'oe').replace('æ','ae')
+    terms = normalized_search_term.split()
+    patterns = [re.compile(re.escape(term), re.IGNORECASE) for term in terms]
 
     conn = get_db_connection()
     conni = get_dbi_connection()
@@ -101,8 +105,12 @@ def search():
 
     matching_recipes = []
     for recipe in recipes:
-        if pattern.search(recipe['name']):
-            matching_recipes.append(recipe)
+        try:
+            if all(pattern.search(recipe['name']) for pattern in patterns):
+                matching_recipes.append(recipe)
+        except re.error as e:
+            # Handle potential regex errors gracefully
+            print(f"Regex error: {e}")
 
     return render_template('search_results.html', recipes=matching_recipes, search_term=search_term, 
                            ingredients=ingredients, appliances=appliances, categories=[category['category'] for category in categories])
