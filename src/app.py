@@ -18,6 +18,7 @@ def get_dba_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
+
 def makelists(recipe):
     if 'ingredients' in recipe:
         recipe['ingredients'] = recipe['ingredients'].split('/')
@@ -27,12 +28,12 @@ def makelists(recipe):
 
     return recipe
 
-
 def get_recipe(recipe_id):
     conn = get_db_connection()
     recipe = conn.execute('SELECT * FROM recipes WHERE r_id = ?',
                         (recipe_id,)).fetchone()
     conn.close()
+    # handle page not found
     if recipe is None:
         abort(404)
     
@@ -44,15 +45,18 @@ def get_recipe(recipe_id):
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
     conn = get_db_connection()
     conni = get_dbi_connection()
     conna = get_dba_connection()
+
     recipes = conn.execute('SELECT * FROM recipes').fetchall()
     ingredients = conni.execute('SELECT * FROM ingredients').fetchall()
     appliances = conna.execute('SELECT * FROM appliances').fetchall()
     categories = conn.execute('SELECT DISTINCT category FROM recipes').fetchall()
+
     conn.close()
     conni.close()
     conna.close()
@@ -63,10 +67,12 @@ def index():
     return render_template('index.html', recipes=recipes, ingredients=ingredients, appliances=appliances, 
                            categories=[category['category'] for category in categories])
 
+
 @app.route('/<int:recipe_id>')
 def recipe(recipe_id):
     recipe = get_recipe(recipe_id)
     return render_template('recipe.html', recipe=recipe)
+
 
 @app.route('/about')
 def about():
@@ -75,6 +81,7 @@ def about():
 @app.route('/dbinfo')
 def dbinfo():
     return render_template('dbinfo.html')
+
 
 @app.route('/search_results')
 def search():
@@ -95,7 +102,6 @@ def search():
     appliances = conna.execute('SELECT * FROM appliances').fetchall()
     categories = conn.execute('SELECT DISTINCT category FROM recipes').fetchall()
 
-
     conn.close()
     conni.close()
     conna.close()
@@ -109,11 +115,13 @@ def search():
             if all(pattern.search(recipe['name']) for pattern in patterns):
                 matching_recipes.append(recipe)
         except re.error as e:
-            # Handle potential regex errors gracefully
+            # Handle potential regex errors
             print(f"Regex error: {e}")
 
     return render_template('search_results.html', recipes=matching_recipes, search_term=search_term, 
-                           ingredients=ingredients, appliances=appliances, categories=[category['category'] for category in categories])
+                           ingredients=ingredients, appliances=appliances, 
+                           categories=[category['category'] for category in categories])
+
 
 @app.route('/tick_results')
 def tick():
@@ -167,5 +175,6 @@ def tick():
     recipes = [makelists(recipe) for recipe in recipes]
 
     return render_template('tick_results.html', recipes=recipes, 
-                           ticked_ingredients=ticked_ingredients, ticked_appliances=ticked_appliances, ticked_categories=ticked_categories, 
-                           ingredients=ingredients, appliances=appliances, categories=[category['category'] for category in categories])
+                           ticked_ingredients=ticked_ingredients, ticked_appliances=ticked_appliances, 
+                           ticked_categories=ticked_categories, ingredients=ingredients, appliances=appliances, 
+                           categories=[category['category'] for category in categories])
