@@ -1,5 +1,7 @@
 # BakeToSave
- This is a repository for our DIS-project
+ This is the source code and database to run our DIS-project, BakeToSave
+
+We assume the use of python 3, for this project to run.
 
 To run our application you need to:
 
